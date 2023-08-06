@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Register</h1>
+        <form method="post" class="mx-auto" enctype="multipart/form-data">
+            {% csrf_token %}
+           
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First name:</label>
+                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First name">
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last name:</label>
+                <input type="text" name="last_name" id="name" class="form-control" placeholder="Last name">
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="mobile Number">
+            </div>
+
+            <div class="form-group">
+                <label for="date_of_birth">DOB:</label>
+                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth">
+            </div>
+
+            <div class="form-group">
+                <label for="avatar">Image:</label>
+                <input type="file" name="avatar" id="avatar" class="form-control-file">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm:</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block form-group mt-3">Signup</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
