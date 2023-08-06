@@ -50,7 +50,7 @@ or revoked, so that they can no longer be used to obtain new access tokens."""
             
 class UserListView(APIView):
     """view for user list."""
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     
     def get(self, request):
         queryset = User.objects.all().order_by('-date_joined')
@@ -60,7 +60,7 @@ class UserListView(APIView):
 
 class GetUser(APIView):
     """retrieve a user with an id."""
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     
     def get(self,request, id):
         try:

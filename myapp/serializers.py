@@ -15,7 +15,7 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
     
     confirm_password = serializers.CharField(max_length=20, write_only=True)
     avatar = serializers.ImageField(max_length=None, allow_empty_file=
-                                    False, use_url=True, required=False, allow_null=True)
+                                    False, use_url=True, required=True, allow_null=True)
 
     class Meta:
         model = User
