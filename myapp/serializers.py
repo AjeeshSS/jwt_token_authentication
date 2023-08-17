@@ -5,6 +5,8 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """serializer for user models."""
+    
     class Meta:
         model = User
         fields = '__all__'
@@ -14,12 +16,11 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
     """Serializer for registration."""
     
     confirm_password = serializers.CharField(max_length=20, write_only=True)
-    avatar = serializers.ImageField(max_length=None, allow_empty_file=
-                                    False, use_url=True, required=True, allow_null=True)
+    avatar = serializers.ImageField(max_length=None, allow_empty_file=False, use_url=True, required=True)
 
     class Meta:
         model = User
-        fields = ['id', 'email','first_name', 'last_name', 'mobile', 'date_of_birth', 'avatar', 'password', 'confirm_password']
+        fields = ['id', 'email', 'first_name', 'last_name', 'mobile', 'date_of_birth', 'avatar', 'password', 'confirm_password']
         read_only_fields = ['id']
 
         extra_kwargs = {
@@ -27,6 +28,8 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, attrs):
+        """code for validation"""
+        
         validation_error = {}
 
         if not re.match(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$', attrs.get('password')):
@@ -50,6 +53,8 @@ class RegistrationUserSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+        """code for create a user"""
+        
         confirm_password = validated_data.pop('confirm_password')
         if validated_data['password'] != confirm_password:
             raise serializers.ValidationError('Passwords do not match')

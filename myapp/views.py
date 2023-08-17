@@ -26,9 +26,8 @@ class RegisterUser(APIView):
     def post(self, request):
         serializer = RegistrationUserSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.create(serializer.validated_data)
+            serializer.create(serializer.validated_data)
 
-            user = UserSerializer(user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
